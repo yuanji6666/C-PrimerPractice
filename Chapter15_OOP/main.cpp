@@ -5,6 +5,7 @@ int main(){
 
     print_total(cout,Book1,5);
     print_total(cout,Book2,15);
-
+    cout<<"net_price: "<<Book2.net_price(15)<<endl;
+    
     return 0;
 }
