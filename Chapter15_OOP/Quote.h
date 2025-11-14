@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//basic class
 class Quote {
 public:
     Quote()=default;
@@ -16,7 +15,6 @@ protected:
     double price=0.0;
     
 };
-//virtual basic class
 class Disc_quote:public Quote{
 public:    
     Disc_quote()=default;
@@ -27,7 +25,6 @@ protected:
     unsigned quantity=0;
     double discout=0.0;
 };
-//derived class
 class Bulk_quote: public Disc_quote{
 public:
     Bulk_quote()=default;
