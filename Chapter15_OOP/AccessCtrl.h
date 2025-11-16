@@ -67,3 +67,4 @@ class Pub_Derv_From_Protected:public Prot_Derv{
     int use_use(){return prot_mem;}
     void memfcn(base &b) {b=*this;}
 };
+

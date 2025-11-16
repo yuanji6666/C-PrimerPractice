@@ -8,6 +8,7 @@ public:
     :bookNo{book},price{book_price}{}
     string isbn() const {return bookNo;}
     virtual double net_price(unsigned n) const {return n*price;}
+    virtual double net_price(unsigned a,unsigned b){return a*b*price;}
     virtual ~Quote()=default;
 private:
     string bookNo;
@@ -27,9 +28,11 @@ protected:
 };
 class Bulk_quote: public Disc_quote{
 public:
+    //构造函数
     Bulk_quote()=default;
     Bulk_quote(const string &book,double book_price,unsigned qty,double disc):
     Disc_quote(book,book_price,qty,disc){};
+    //覆盖net_price的单形参版本
     double net_price(unsigned n) const override{
         if(n>=min_qty){
             cout<<"discout book!"<<endl;
@@ -37,6 +40,8 @@ public:
         }
         else return n*price;
     }
+    //添加所有的net_price重载函数
+    using Quote::net_price;
 private:
     double disc;
     unsigned min_qty;
