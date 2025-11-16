@@ -16,10 +16,8 @@ public:
     }
     HasPtr(const string &s =string()):ps(new string(s)),i(0),use(new unsigned(1)) {}
     //copy operator
+    /*
     HasPtr& operator=(const HasPtr& x){ 
-        /*
-        编写赋值运算符的原则：对象赋予他自身时必须能工作
-        */
         ++*x.use;
         if(--*use==0){
             delete ps;
@@ -31,6 +29,11 @@ public:
         return *this;    
         
     }
+    */
+   HasPtr& operator=(HasPtr x){
+        swap(*this,x);
+        return *this;
+   }
     //deconstructor
     ~HasPtr(){
        if(--*use==0){
@@ -45,4 +48,12 @@ public:
     unsigned *use;
     string *ps;
     int i;
+public:
+    friend void swap(HasPtr&,HasPtr&);
 };
+void swap(HasPtr& a,HasPtr& b){
+    using std::swap;
+    swap(a.ps,b.ps);
+    swap(a.i,b.i);
+    swap(a.use,b.use);
+}
