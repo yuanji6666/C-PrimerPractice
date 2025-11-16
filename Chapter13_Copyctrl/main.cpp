@@ -1,4 +1,4 @@
-#include "Hasptr_value.h"
+#include "Hasptr_ptr.h"
 int main(){
     HasPtr a("hello");
     HasPtr b(a);
